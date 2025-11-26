@@ -1,0 +1,31 @@
+name: 'austin_bikeshare_demo'
+version: '1.0.0'
+
+profile: 'austin_bikeshare_demo'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  austin_bikeshare_demo:
+    staging:
+      +materialized: view
+      +schema: staging
+    marts:
+      +materialized: table
+      +schema: marts
+
+snapshots:
+  austin_bikeshare_demo:
+    +target_schema: snapshots
+    +strategy: timestamp
+    +unique_key: id
+    +invalidate_hard_deletes: true

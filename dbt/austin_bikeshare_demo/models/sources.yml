@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: austin_bikeshare
+    description: >
+      Austin B-cycle bikeshare public dataset from BigQuery.
+      Contains trip records and station metadata.
+    database: bigquery-public-data
+    schema: austin_bikeshare
+    
+    tables:
+      - name: bikeshare_trips
+        description: >
+          Individual trip records. Each row is a bike rental.
+          
+      - name: bikeshare_stations
+        description: >
+          Station location and metadata for docking stations.

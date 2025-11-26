@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_bikeshare_trips
+    description: >
+      Staged trip records with extracted date/time fields.
+    columns:
+      - name: trip_id
+        description: "Primary key - unique trip identifier"
+        tests:
+          - unique
+          - not_null
+      - name: start_station_id
+        description: "Foreign key to stations"
+        tests:
+          - not_null

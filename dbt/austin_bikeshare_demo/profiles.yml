@@ -1,0 +1,13 @@
+austin_bikeshare_demo:
+  outputs:
+    dev:
+      dataset: austin_bikeshare_demo
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: US
+      method: oauth
+      priority: interactive
+      project: northern-hope-477909-g9
+      threads: 1
+      type: bigquery
+  target: dev

@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: dim_stations_scd
+    description: >
+      SCD Type 2 station dimension with version history.
+      Use is_current=TRUE for latest state.
+    columns:
+      - name: station_version_id
+        description: "Surrogate key for this version"
+        tests:
+          - unique
+          - not_null
+      - name: station_id
+        description: "Natural key (not unique here)"
+        tests:
+          - not_null
+      - name: is_current
+        description: "TRUE if active version"
+
+  - name: fct_trips_with_station_history
+    description: >
+      Trips with station attributes as of trip date.
+    columns:
+      - name: trip_id
+        tests:
+          - unique
+          - not_null
+      - name: start_station_status_at_trip
+        description: "Station status AS OF trip date"
+    
